@@ -18,9 +18,6 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
@@ -32,6 +29,8 @@ jobs:
           mkdir -p android/app/src/main/java/com/dahshansoft/history11
           cp index.html android/app/src/main/assets/index.html
           cd android
+
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
 
           cat > settings.gradle <<'EOF'
           pluginManagement {
