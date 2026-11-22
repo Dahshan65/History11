@@ -28,6 +28,8 @@ jobs:
           mkdir -p android/app/src/main/assets
           mkdir -p android/app/src/main/java/com/dahshansoft/history11
           cp index.html android/app/src/main/assets/index.html
+          mkdir -p android/app/src/main/assets/fonts
+          curl -fL -o android/app/src/main/assets/fonts/NotoNaskhArabic.ttf "https://github.com/google/fonts/raw/main/ofl/notonaskharabic/NotoNaskhArabic%5Bwght%5D.ttf"
           cd android
 
           echo "sdk.dir=$ANDROID_HOME" > local.properties
@@ -65,8 +67,8 @@ jobs:
                   applicationId 'com.dahshansoft.history11'
                   minSdk 21
                   targetSdk 34
-                  versionCode 1
-                  versionName '1.0'
+                  versionCode 2
+                  versionName '1.1'
               }
               compileOptions {
                   sourceCompatibility JavaVersion.VERSION_17
